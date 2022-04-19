@@ -1,8 +1,8 @@
 const Web3 = require('web3');
-const web3 = new Web3('wss://mainnet.infura.io/ws/v3/' + process.env.INFURA_ID);
+const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 const { TwitterApi } = require('twitter-api-v2');
 
-const contract = '0x0Db9e2f4395a179e4ADd26B43cFe8E4Ea1830B46';
+const contract = '0x1c8254842BFdefD96Ec311e2b38440b75c9A9dF3';
 
 exports.handler = async function (event, context) {
   const body = JSON.parse(event.body);
@@ -11,7 +11,7 @@ exports.handler = async function (event, context) {
   const signature = body.signature;
   const text = body.text;
 
-  const message = 'TweetDao: ' + timestamp + ' ' + text;
+  const message = 'RooftopDAO: ' + timestamp + ' ' + text;
 
   const addressSource = web3.eth.accounts.recover(message, signature);
 
@@ -45,7 +45,7 @@ exports.handler = async function (event, context) {
     return {
       statusCode: 200,
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ message: 'Wallet doesn\'t contain any TweetDao NFTs' }),
+      body: JSON.stringify({ message: 'Wallet doesn\'t contain any RooftopDAO NFTs' }),
     };
   }
 }
