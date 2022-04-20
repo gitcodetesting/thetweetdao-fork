@@ -34,7 +34,7 @@ exports.handler = async function (event, context) {
       accessSecret: tokenSecret,
     });
 
-    await client.v1.tweet(text);
+    await client.v2.tweet(text);
 
     return {
       statusCode: 200,
