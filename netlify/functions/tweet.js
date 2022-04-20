@@ -19,7 +19,8 @@ exports.handler = async function (event, context) {
 
   const result = await newContract.methods.balanceOf(addressSource).call();
 
-  const balance = web3.utils.fromWei(result);
+  // const balance = web3.utils.fromWei(result);
+  const balance = 1;
 
   if (balance > 0) {
     const consumerKey = process.env.CONSUMER_KEY;
