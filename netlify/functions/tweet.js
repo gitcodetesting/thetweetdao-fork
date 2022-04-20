@@ -34,7 +34,7 @@ exports.handler = async function (event, context) {
       accessSecret: tokenSecret,
     });
 
-    await client.v2.tweet(text);
+    await client.v2.tweet(text + '\n' + '--Tweeted from http://rooftopdao.xyz. Kindly #HFSP 🤝');
 
     return {
       statusCode: 200,
